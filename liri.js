@@ -123,9 +123,16 @@ function movie(){
 //     * Plot of the movie.
 //     * Actors in the movie.
 
+if(searched===undefined){
+    searched="Mr. Nobody";
+}
+
 request("http://www.omdbapi.com/?apikey=trilogy&t=" + searched +"&type=movie", function(error, response, body){
     if(error) throw error;
     //node liri.js movie-this matrix
+
+    console.log("searched= "+searched)
+
     
     var movie = JSON.parse(body);
     var rottenScore="N/A"
